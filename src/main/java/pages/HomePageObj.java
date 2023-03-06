@@ -25,6 +25,12 @@ public class HomePageObj extends BasePage{
 	
 	By currency= By.xpath("//span[text()='Currency']");
 	
+	By MyACcount= By.xpath("//span[text()='My Account']");
+	
+	By Register = By.xpath("//a[text()='Register']");
+	
+	By Login =By.xpath("//a[text()='Login']");
+			
 	
 	//Action methods
 	public String getHomepageTitle() {
@@ -41,6 +47,34 @@ public class HomePageObj extends BasePage{
 	
 	public void clickOnSearchButton() {
 		utils.doClick(SearchButton);
+	}
+	
+	public boolean isSerchButtonDisplayed() {
+		return utils.isElementDisplay(SearchButton);
+	}
+	
+	public boolean isMyAccountDisplay() {
+		return utils.isElementDisplay(MyACcount);
+	}
+	
+	public void clickOnMyAccount() {
+		utils.doClick(MyACcount);
+	}
+	
+	public void clickOnRegister() {
+		utils.doClick(Register);
+	}
+	
+	public void clcikOnLogin() {
+		utils.doClick(Login);
+	}
+	
+	public boolean registerIsDisplay() {
+		return utils.isElementDisplay(Register);
+	}
+	
+	public boolean loginIsDisplay() {
+		return utils.isElementDisplay(Login);
 	}
 
 }

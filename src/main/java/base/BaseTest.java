@@ -6,18 +6,21 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import pages.HomePageObj;
+
 public class BaseTest {
-	WebDriver driver;
-	BasePage base;
-	Properties prop;
+	public WebDriver driver;
+	public BasePage base;
+	public Properties prop;
+	public HomePageObj home;
 	
 	@BeforeMethod
 	public void doSetUp() {
 		base= new BasePage();
 		prop=base.init_Properties();
 		driver=base.init_Browser(prop.getProperty("browser"));
+		home= new HomePageObj(driver);
 		driver.manage().window().maximize();
-		
 		driver.get(prop.getProperty("url"));
 		
 		
