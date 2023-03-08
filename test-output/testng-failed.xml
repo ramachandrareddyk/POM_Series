@@ -3,13 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.HomePageTests">
+      <class name="testCases.LoginPageTests">
         <methods>
+          <include name="verifyUsernameTextBoxExist"/>
           <include name="tearDown"/>
+          <include name="verifyForgetPasswordLinkExist"/>
+          <include name="verifyNewCustomerHeader"/>
+          <include name="verifyReturningCustomerHeader"/>
           <include name="doSetUp"/>
-          <include name="verifyRegisterOptionIsDisplay"/>
+          <include name="verifyLoginButtonExist"/>
+          <include name="verifyEmailidLabel"/>
+          <include name="verifyContinueButton"/>
+          <include name="verifypasswordTextBoxExist"/>
+          <include name="verifyPasswordLabel"/>
+          <include name="verifyLoginPageTitleTest"/>
         </methods>
-      </class> <!-- testCases.HomePageTests -->
+      </class> <!-- testCases.LoginPageTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
