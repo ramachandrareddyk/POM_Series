@@ -1,21 +1,25 @@
 package base;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BasePage {
 	
-	WebDriver driver;
+	static WebDriver driver;
 	Properties prop;
 	
 	public WebDriver init_Browser(String browserName) {
@@ -59,5 +63,21 @@ public class BasePage {
 		
 		return prop;
 	}
+	
+	public static String getScreenshot() {
+		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
+		File destination = new File(path);
+		try {
+			FileHandler.copy(srcFile, destination);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return path;
+
+	}
 
 }
+
+
